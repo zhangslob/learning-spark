@@ -1,9 +1,13 @@
 //https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/HdfsTest.scala
 
 import org.apache.spark.sql.SparkSession
+import org.apache.log4j.{Level,Logger}
 
 object HdfsTest {
   def main(args: Array[String]): Unit = {
+    Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
+    Logger.getLogger("org.eclipse.jetty.server").setLevel(Level.OFF)
+
     if (args.length < 1) {
       System.err.println("Usage: HdfsTest <file>")
       System.exit(1)
